@@ -20,9 +20,6 @@ class ResetCommand extends AbstractCommand
         
         if (is_resource($backup) || $backup instanceof \GdImage) {
 
-            // destroy current resource
-            imagedestroy($image->getCore());
-
             // clone backup
             $backup = $image->getDriver()->cloneCore($backup);
 

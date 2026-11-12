@@ -14,13 +14,7 @@ class DestroyCommand extends AbstractCommand
      */
     public function execute($image)
     {
-        // destroy image core
-        imagedestroy($image->getCore());
-
-        // destroy backups
-        foreach ($image->getBackups() as $backup) {
-            imagedestroy($backup);
-        }
+        // GD images are objects since PHP 8.0 and are freed once no longer referenced
 
         return true;
     }
